@@ -1,0 +1,78 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+body{
+   background-color: #cf670d;
+    color: aliceblue;
+}
+header nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #212121
+}
+header nav p{
+    font-size: 24px;
+    font-weight: bold;
+}
+header nav div input{
+   
+    gap: 10px;
+    margin: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: aliceblue;
+}
+header nav div button{
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #e67e22;
+    color: aliceblue;
+    cursor: pointer;
+}
+main{
+    margin:20px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width: 600px) {
+    header nav{
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    header nav div{
+        display: flex;
+        align-items: center;
+        width: 90%;
+        max-width: 420px;
+        gap: 10px;
+    }
+
+    header nav div input{
+        flex: 1;
+        min-width: 0;
+        margin: 0;
+        height: 42px;
+    }
+
+    header nav div button{
+        height: 42px;
+        padding: 0 20px;
+        white-space: nowrap;
+    }
+
+    main{
+        padding: 20px;
+    }
+}
