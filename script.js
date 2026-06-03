@@ -8,15 +8,17 @@ const fetchRecipes=async(query)=>{
     const response=await data.json();
    recipeContainer.innerHTML='';
     response.meals.forEach(meal => {
-        const recieveDiv=document.createElement('div');
-        recieveDiv.classList.add('recipe');
-        recieveDiv.innerHTML=`
+        const recipeDiv=document.createElement('div');
+        recipeDiv.classList.add('recipe');
+        recipeDiv.innerHTML=`
          <img src="${meal.strMealThumb}">
             <h2>${meal.strMeal}</h2>
             <p>${meal.strArea}</p>
             <p>Belongs to <span>${meal.strCategory}</span> Category</p>
+            <button onclick="window.open('${meal.strSource}','_blank')">View Recipe</button>
         `;
-        recipeContainer.appendChild(recieveDiv);
+        
+        recipeContainer.appendChild(recipeDiv);
     });
     
 };

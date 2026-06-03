@@ -67,6 +67,15 @@ header nav div button{
     border-radius: 10px;
     margin: 10px;
 }
+.recipe button{
+    margin: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 50px;
+    background-color: #d22f16;
+    color: aliceblue;
+    cursor: pointer;
+}
 .recipe:hover{
     transform: scale(1.05);
     transition: transform 0.3s ease-in-out;
