@@ -14,7 +14,7 @@ const fetchRecipes=async(query)=>{
          <img src="${meal.strMealThumb}">
             <h2>${meal.strMeal}</h2>
             <p>${meal.strArea}</p>
-            <p>${meal.strCategory}</p>
+            <p>Belongs to <span>${meal.strCategory}</span> Category</p>
         `;
         recipeContainer.appendChild(recieveDiv);
     });
