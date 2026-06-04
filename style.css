@@ -113,6 +113,29 @@ header nav div button{
     z-index: 1001;
 }
 
+.recipe-title{
+    
+    text-align: center;
+    text-decoration :underline;
+    text-transform: uppercase;
+}
+.ingredients-list {
+    list-style-type: disc;
+    padding-left: 20px;
+    
+}
+.recipe-back-button{
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    background-color: #d22f16;
+    border: none;
+   
+    font-size: 24px;
+    cursor: pointer;
+}
+
+
 @media screen and (max-width: 600px) {
     header nav{
         flex-direction: column;
@@ -133,3 +156,4 @@ header nav div button{
         padding: 20px;
     }
 }
+
