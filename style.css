@@ -97,6 +97,21 @@ header nav div button{
     font-size:  24px;  
    
 }
+.recipe-details{
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #180b0b;
+    padding: 20px;
+    border: 3px solid #0a0807;
+    border-radius: 10px;
+    width: 40%;
+    height: 60%;
+    max-width: 600px;
+    z-index: 1001;
+}
 
 @media screen and (max-width: 600px) {
     header nav{
