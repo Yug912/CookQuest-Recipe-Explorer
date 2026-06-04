@@ -8,7 +8,17 @@ const fetchRecipes=async(query)=>{
     try{
     const data=await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`);
     const response=await data.json();
+        if(!response.meals){
+    recipeContainer.innerHTML = `
+        <p style="color:white;font-size:24px;">
+            No recipes found. Try another meal.
+        </p>
+        `;
+        return;
+       }
    recipeContainer.innerHTML='';
+
+
     response.meals.forEach(meal => {
         const recipeDiv=document.createElement('div');
         recipeDiv.classList.add('recipe');
