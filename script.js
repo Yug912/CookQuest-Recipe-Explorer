@@ -3,22 +3,24 @@ let searchbutton=document.querySelector('.searchbutton');
 let recipeContainer=document.querySelector('.recipe-container');
 let recipebackbutton=document.querySelector('.recipe-back-button');
 let recipedetailcontent=document.querySelector('.recipe-detail-content');
+
+// Fetch recipes from TheMealDB API based on user's search
 const fetchRecipes=async(query)=>{
     recipeContainer.innerHTML='fetching recipes...';
     try{
     const data=await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`);
     const response=await data.json();
-        if(!response.meals){
+    if(!response.meals){
     recipeContainer.innerHTML = `
         <p style="color:white;font-size:24px;">
             No recipes found. Try another meal.
         </p>
-        `;
-        return;
-       }
+    `;
+    return;
+}
    recipeContainer.innerHTML='';
 
-
+   // Create a recipe card for each meal returned by the API
     response.meals.forEach(meal => {
         const recipeDiv=document.createElement('div');
         recipeDiv.classList.add('recipe');
@@ -37,12 +39,14 @@ const fetchRecipes=async(query)=>{
         recipeContainer.appendChild(recipeDiv);
     });
 }catch(error){
+     // Display an error message if API request fails
     recipeContainer.innerHTML='<p style="color: aliceblue;font-weight: bold;font-size: 24px;">An error occurred while fetching recipes. Please try again later.</p>';
 }
 };
 const fetchingredients=(meal)=>{
     let ingredientlist="";
-    for(let i=0;i<20;i++){
+
+    for(let i=1;i<20;i++){
         const ingredient=meal[`strIngredient${i}`];
         if(ingredient)
         {
@@ -52,12 +56,15 @@ const fetchingredients=(meal)=>{
     }
     return ingredientlist;  
 }
+// Open recipe details popup
 const openpopup=(meal)=>{
     recipedetailcontent.innerHTML=`
     <h2 class="recipe-title">${meal.strMeal}</h2>
     <br>
+
     <h3 class="recipe-ingredients">Ingredients:</h3>
     <br>
+
     <ul class="ingredients-list">
     ${fetchingredients(meal)}
 </ul>
@@ -71,6 +78,15 @@ const openpopup=(meal)=>{
     `;
     recipedetailcontent.parentElement.style.display='block';  
 }
+
+// Close recipe details popup
+const closepopup=()=>{
+    recipedetailcontent.parentElement.style.display='none';
+}
+
+recipebackbutton.addEventListener('click', closepopup);
+
+// Search button click event
 searchbutton.addEventListener('click',(e)=>{
       e.preventDefault();
       const query=searchbox.value.trim();
@@ -79,8 +95,7 @@ searchbutton.addEventListener('click',(e)=>{
         recipeContainer.innerHTML='<p style="color: aliceblue;font-weight: bold;font-size: 24px;">Type the meal in the search box</p>';
         return;
       }
+      else{
       fetchRecipes(query);
-});
-recipebackbutton.addEventListener('click',()=>{
-    recipedetailcontent.parentElement.style.display='none';
+      }
 });

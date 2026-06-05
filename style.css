@@ -112,7 +112,6 @@ header nav div button{
     max-width: 600px;
     z-index: 1001;
 }
-
 .recipe-title{
     
     text-align: center;
@@ -130,12 +129,9 @@ header nav div button{
     right: 0px;
     background-color: #d22f16;
     border: none;
-   
     font-size: 24px;
     cursor: pointer;
 }
-
-
 @media screen and (max-width: 600px) {
     header nav{
         flex-direction: column;
